@@ -166,11 +166,11 @@ footer { background: #f5d76e; text-align: center; padding: 20px; font-size: 0.95
   <p><strong>Telefon comenzi: 0739 363 307 / 0758 062 188</strong></p>
 </section>
 
- <section id="contact">
+  <section id="contact">
   <h2>Comandă Produse</h2>
-  <p>Completează formularul de mai jos pentru a comanda. După primirea comenzii, te vom contacta pentru confirmare și detalii plată/livrare.</p>
+  <p>Completează formularul de mai jos pentru a comanda. După trimiterea formularului, vei primi instrucțiuni pentru plată.</p>
 
-  <form id="comandaProfesional" action="https://formspree.io/f/xovkjrqj" method="POST" autocomplete="on">
+  <form id="comandaBancara" action="https://formspree.io/f/ID_FORMSPREE" method="POST" autocomplete="on">
     <div class="form-group">
       <label for="nume">Nume complet:</label>
       <input type="text" id="nume" name="nume" placeholder="Ex: Ion Popescu" required>
@@ -206,13 +206,16 @@ footer { background: #f5d76e; text-align: center; padding: 20px; font-size: 0.95
     </div>
 
     <button type="submit">Trimite Comanda</button>
-    <div class="success-message" id="successMessage">Comanda a fost trimisă cu succes!</div>
+    <div class="success-message" id="successMessage">
+      ✅ Comanda a fost trimisă cu succes!  
+      <br><br>
+      <strong>Instrucțiuni plată:</strong><br>
+      IBAN: <strong>RO49AAAA1B31007593840000</strong><br>
+      Banca: BCR<br>
+      Titular: <strong>Iustin Manolache</strong><br>
+      După efectuarea plății, trimiteți dovada la <strong>manolacheiustin8@gmail.com</strong>
+    </div>
   </form>
-
-  <p><strong>Telefon comenzi:</strong> 0739 363 307 / 0758 062 188</p>
-  <p><strong>Email:</strong> vasile_varlan@yahoo.com</p>
-  <p><strong>Email:</strong> manolacheiustin8@gmail.com</p>
-  <p><strong>Metodă plată:</strong> Transfer bancar sau ramburs, după confirmarea comenzii.</p>
 
   <style>
     #contact { font-family: Arial, sans-serif; max-width: 600px; margin: auto; padding: 20px; }
@@ -241,15 +244,18 @@ footer { background: #f5d76e; text-align: center; padding: 20px; font-size: 0.95
     button:hover { background-color: #218838; }
     .success-message {
       display: none;
-      margin-top: 10px;
-      text-align: center;
+      margin-top: 20px;
+      padding: 15px;
+      border: 2px solid #28a745;
+      border-radius: 6px;
+      background: #e6ffe6;
+      color: #155724;
       font-weight: bold;
-      color: #28a745;
     }
   </style>
 
   <script>
-    const form = document.getElementById('comandaProfesional');
+    const form = document.getElementById('comandaBancara');
     const successMessage = document.getElementById('successMessage');
 
     form.addEventListener('submit', function(event) {
@@ -264,7 +270,6 @@ footer { background: #f5d76e; text-align: center; padding: 20px; font-size: 0.95
         if (response.ok) {
           form.reset();
           successMessage.style.display = 'block';
-          setTimeout(() => { successMessage.style.display = 'none'; }, 5000);
         } else {
           alert("Oops! Ceva nu a mers, încearcă din nou.");
         }
