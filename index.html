@@ -5,50 +5,67 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>MINUNATA VIETATE A PLANETEI - Produse Apicole Naturale</title>
 <style>
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: Arial, sans-serif; background: #fff8e1; color: #5a3e00; line-height: 1.6; }
-header { background: #f5d76e; padding: 30px 20px; text-align: center; }
-header h1 { font-size: 2.8em; margin-bottom: 10px; }
-header p { font-size: 1.2em; }
-nav { background: #e6b73c; text-align: center; padding: 12px 0; }
-nav a { color: #5a3e00; text-decoration: none; font-weight: bold; margin: 0 20px; transition: 0.3s; }
-nav a:hover { text-decoration: underline; }
-section { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
-h2 { color: #a76b00; margin-bottom: 20px; text-align: center; }
-.products { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-.product { background: #fff3c4; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1); display: flex; flex-direction: column; justify-content: space-between; transition: transform 0.3s, box-shadow 0.3s; padding-bottom: 15px; }
-.product:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.15); }
-.product img { width: 100%; height: 220px; object-fit: cover; }
-.product h3 { font-size: 1.2em; margin: 12px 15px 5px 15px; }
-.product p { font-size: 0.95em; margin: 0 15px 10px 15px; }
-.variant { margin: 10px 15px; }
-.qty-control { display:flex; justify-content:center; align-items:center; gap:10px; margin:5px 0; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { font-family:Arial,sans-serif; background:#fff8e1; color:#5a3e00; line-height:1.6; }
+
+/* Header */
+header { background:#f5d76e; padding:30px 20px; text-align:center; }
+header h1 { font-size:2.8em; margin-bottom:10px; }
+header p { font-size:1.2em; }
+
+/* Navigation */
+nav { background:#e6b73c; text-align:center; padding:12px 0; }
+nav a { color:#5a3e00; text-decoration:none; font-weight:bold; margin:0 20px; transition:0.3s; }
+nav a:hover { text-decoration:underline; }
+
+/* Sections */
+section { max-width:1200px; margin:40px auto; padding:0 20px; }
+h2 { color:#a76b00; margin-bottom:20px; text-align:center; }
+
+/* Products grid */
+.products { display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:20px; }
+.product { background:#fff3c4; border-radius:12px; overflow:hidden; box-shadow:0 4px 12px rgba(0,0,0,0.1); display:flex; flex-direction:column; justify-content:space-between; transition:transform 0.3s, box-shadow 0.3s; padding-bottom:15px; }
+.product:hover { transform:translateY(-5px); box-shadow:0 8px 20px rgba(0,0,0,0.15); }
+.product img { width:100%; height:220px; object-fit:cover; }
+.product h3 { font-size:1.2em; margin:12px 15px 5px 15px; }
+.product p { font-size:0.95em; margin:0 15px 10px 15px; }
+.product ul { list-style:none; padding-left:15px; margin-bottom:15px; }
+.product ul li { margin-bottom:5px; }
+.qty-control { display:flex; justify-content:center; align-items:center; gap:10px; margin:10px 0; }
 .qty-control button { padding:5px 10px; font-size:18px; cursor:pointer; border:none; background:#e6b73c; border-radius:5px; }
 .qty-control input { width:50px; text-align:center; font-size:16px; }
-.add-btn { background:#28a745; color:#fff; border:none; padding:10px; border-radius:8px; cursor:pointer; font-weight:bold; margin:10px 15px; }
+.add-btn { background:#28a745; color:#fff; border:none; padding:10px; border-radius:8px; cursor:pointer; font-weight:bold; margin:0 15px; }
 .add-btn:hover { background:#218838; }
-#cart { background:#fff3c4; border:2px solid #e6b73c; border-radius:12px; padding:20px; margin:40px auto; max-width:700px; }
-#cart h2 { color:#a76b00; text-align:center; margin-bottom:15px; }
+
+/* Cart */
+#cart { background:#fff3c4; border:2px solid #e6b73c; border-radius:12px; padding:20px; margin:40px auto; max-width:600px; }
+#cart h2 { color:#a76b00; text-align:center; }
 #cart ul { list-style:none; padding:0; }
 #cart li { margin:8px 0; display:flex; justify-content:space-between; align-items:center; }
 #cart li button { padding:2px 6px; background:#d9534f; color:#fff; border:none; border-radius:4px; cursor:pointer; }
-#total { font-weight:bold; margin-top:15px; font-size:1.2em; text-align:right; color:#333; }
+#total { font-weight:bold; margin-top:15px; font-size:1.2em; color:#333; text-align:right; }
 .checkout { margin-top:20px; padding:12px; width:100%; background:#d1a400; border:none; border-radius:8px; font-size:1.1em; cursor:pointer; }
 .checkout:hover { background:#b88c00; }
-form { background: #fff3c4; padding: 25px; border-radius: 12px; border: 2px solid #e6b73c; max-width: 600px; margin: 40px auto; }
-form label { display: block; margin-bottom: 6px; font-weight: bold; }
-form input { width: 100%; padding: 10px; margin-bottom: 15px; border-radius: 6px; border: 1px solid #a76b00; font-size: 1em; }
-form button { width: 100%; padding: 12px; background-color: #28a745; color: #fff; border: none; font-weight: bold; border-radius: 8px; cursor: pointer; font-size: 1em; transition: 0.3s; }
-form button:hover { background-color: #218838; }
+
+/* Contact form */
+form { background:#fff3c4; padding:25px; border-radius:12px; border:2px solid #e6b73c; max-width:600px; margin:40px auto; }
+form label { display:block; margin-bottom:6px; font-weight:bold; }
+form input { width:100%; padding:10px; margin-bottom:15px; border-radius:6px; border:1px solid #a76b00; font-size:1em; }
+form button { width:100%; padding:12px; background-color:#28a745; color:#fff; border:none; font-weight:bold; border-radius:8px; cursor:pointer; font-size:1em; transition:0.3s; }
+form button:hover { background-color:#218838; }
+
+/* Welcome message */
+#welcome-msg { position:fixed; top:20%; left:50%; transform:translateX(-50%); background:rgba(255,235,170,0.9); padding:20px 40px; border-radius:12px; font-size:2em; color:#5a3e00; opacity:0; pointer-events:none; transition:opacity 1s; }
+
+/* Footer */
 footer { background:#f5d76e; text-align:center; padding:20px; font-size:0.95em; color:#5a3e00; }
-@media (max-width: 600px) {
-  header h1 { font-size: 2em; }
-  nav a { margin: 0 10px; }
-  .product img { height: 180px; }
-}
+
+@media(max-width:600px){ header h1{font-size:2em} nav a{margin:0 10px} .product img{height:180px} }
 </style>
 </head>
 <body>
+
+<div id="welcome-msg">Bine ați venit pe site-ul nostru!</div>
 
 <header>
   <h1>MINUNATA VIETATE A PLANETEI</h1>
@@ -64,195 +81,107 @@ footer { background:#f5d76e; text-align:center; padding:20px; font-size:0.95em; 
 <section id="produse">
   <h2>Produsele Noastre</h2>
   <div class="products">
-
-    <!-- Miere de mană -->
+    <!-- Lista completă produse cu variante -->
     <div class="product" data-name="Miere de mană">
-      <img src="miere de mană.jpg" alt="Miere de mană">
+      <img src="miere de mană.jpg" loading="lazy" alt="Miere de mană">
       <h3>Miere de mană</h3>
       <p>Miere naturală, obținută din seva copacilor, cu gust intens.</p>
-      <div class="variant">
-        <label>400g – 30 lei</label>
-        <div class="qty-control">
-          <button class="minus">-</button>
-          <input type="number" class="qty" value="1" min="1" data-price="30">
-          <button class="plus">+</button>
-        </div>
+      <div class="variant"><label>400g – 30 lei</label>
+        <div class="qty-control"><button class="minus">-</button><input type="number" class="qty" value="1" min="1" data-price="30"><button class="plus">+</button></div>
       </div>
-      <div class="variant">
-        <label>800g – 55 lei</label>
-        <div class="qty-control">
-          <button class="minus">-</button>
-          <input type="number" class="qty" value="1" min="1" data-price="55">
-          <button class="plus">+</button>
-        </div>
+      <div class="variant"><label>800g – 55 lei</label>
+        <div class="qty-control"><button class="minus">-</button><input type="number" class="qty" value="1" min="1" data-price="55"><button class="plus">+</button></div>
       </div>
       <button class="add-btn">Adaugă în coș</button>
     </div>
 
-    <!-- Miere polifloră -->
     <div class="product" data-name="Miere polifloră">
-      <img src="miere polifloră.jpg" alt="Miere polifloră">
+      <img src="miere polifloră.jpg" loading="lazy" alt="Miere polifloră">
       <h3>Miere polifloră</h3>
       <p>Miere dulce, cu aromă variată din mai multe flori.</p>
-      <div class="variant">
-        <label>400g – 25 lei</label>
-        <div class="qty-control">
-          <button class="minus">-</button>
-          <input type="number" class="qty" value="1" min="1" data-price="25">
-          <button class="plus">+</button>
-        </div>
+      <div class="variant"><label>400g – 25 lei</label>
+        <div class="qty-control"><button class="minus">-</button><input type="number" class="qty" value="1" min="1" data-price="25"><button class="plus">+</button></div>
       </div>
-      <div class="variant">
-        <label>800g – 45 lei</label>
-        <div class="qty-control">
-          <button class="minus">-</button>
-          <input type="number" class="qty" value="1" min="1" data-price="45">
-          <button class="plus">+</button>
-        </div>
+      <div class="variant"><label>800g – 45 lei</label>
+        <div class="qty-control"><button class="minus">-</button><input type="number" class="qty" value="1" min="1" data-price="45"><button class="plus">+</button></div>
       </div>
       <button class="add-btn">Adaugă în coș</button>
     </div>
 
-    <!-- Miere salcâm -->
     <div class="product" data-name="Miere salcâm">
-      <img src="miere de salcâm.jpg" alt="Miere salcâm">
+      <img src="miere de salcâm.jpg" loading="lazy" alt="Miere salcâm">
       <h3>Miere salcâm</h3>
       <p>Miere delicată, limpede, cu gust fin și aromă florală.</p>
-      <div class="variant">
-        <label>400g – 28 lei</label>
-        <div class="qty-control">
-          <button class="minus">-</button>
-          <input type="number" class="qty" value="1" min="1" data-price="28">
-          <button class="plus">+</button>
-        </div>
+      <div class="variant"><label>400g – 28 lei</label>
+        <div class="qty-control"><button class="minus">-</button><input type="number" class="qty" value="1" min="1" data-price="28"><button class="plus">+</button></div>
       </div>
-      <div class="variant">
-        <label>800g – 50 lei</label>
-        <div class="qty-control">
-          <button class="minus">-</button>
-          <input type="number" class="qty" value="1" min="1" data-price="50">
-          <button class="plus">+</button>
-        </div>
+      <div class="variant"><label>800g – 50 lei</label>
+        <div class="qty-control"><button class="minus">-</button><input type="number" class="qty" value="1" min="1" data-price="50"><button class="plus">+</button></div>
       </div>
       <button class="add-btn">Adaugă în coș</button>
     </div>
 
-    <!-- Miere salcâm cu cimbrișor -->
     <div class="product" data-name="Miere salcâm cu cimbrișor">
-      <img src="miere de salcâm cu cimbrișor de câmp.jpg" alt="Miere salcâm cu cimbrișor">
+      <img src="miere de salcâm cu cimbrișor de câmp.jpg" loading="lazy" alt="Miere salcâm cu cimbrișor">
       <h3>Miere salcâm cu cimbrișor</h3>
       <p>Proprietăţi expectorante, calmează spasmele căilor respiratorii.</p>
-      <div class="variant">
-        <label>400g – 30 lei</label>
-        <div class="qty-control">
-          <button class="minus">-</button>
-          <input type="number" class="qty" value="1" min="1" data-price="30">
-          <button class="plus">+</button>
-        </div>
+      <div class="variant"><label>400g – 30 lei</label>
+        <div class="qty-control"><button class="minus">-</button><input type="number" class="qty" value="1" min="1" data-price="30"><button class="plus">+</button></div>
       </div>
-      <div class="variant">
-        <label>800g – 60 lei</label>
-        <div class="qty-control">
-          <button class="minus">-</button>
-          <input type="number" class="qty" value="1" min="1" data-price="60">
-          <button class="plus">+</button>
-        </div>
+      <div class="variant"><label>800g – 60 lei</label>
+        <div class="qty-control"><button class="minus">-</button><input type="number" class="qty" value="1" min="1" data-price="60"><button class="plus">+</button></div>
       </div>
       <button class="add-btn">Adaugă în coș</button>
     </div>
 
-    <!-- Miere floarea soarelui -->
     <div class="product" data-name="Miere floarea soarelui">
-      <img src="miere-floarea-soarelui.jpg" alt="Miere floarea soarelui">
+      <img src="miere-floarea-soarelui.jpg" loading="lazy" alt="Miere floarea soarelui">
       <h3>Miere floarea soarelui</h3>
       <p>Miere cu gust dulce și aromă specifică de floarea soarelui.</p>
-      <div class="variant">
-        <label>400g – 23 lei</label>
-        <div class="qty-control">
-          <button class="minus">-</button>
-          <input type="number" class="qty" value="1" min="1" data-price="23">
-          <button class="plus">+</button>
-        </div>
+      <div class="variant"><label>400g – 23 lei</label>
+        <div class="qty-control"><button class="minus">-</button><input type="number" class="qty" value="1" min="1" data-price="23"><button class="plus">+</button></div>
       </div>
-      <div class="variant">
-        <label>800g – 42 lei</label>
-        <div class="qty-control">
-          <button class="minus">-</button>
-          <input type="number" class="qty" value="1" min="1" data-price="42">
-          <button class="plus">+</button>
-        </div>
+      <div class="variant"><label>800g – 42 lei</label>
+        <div class="qty-control"><button class="minus">-</button><input type="number" class="qty" value="1" min="1" data-price="42"><button class="plus">+</button></div>
       </div>
       <button class="add-btn">Adaugă în coș</button>
     </div>
 
-    <!-- Faguri -->
     <div class="product" data-name="Faguri">
-      <img src="faguri.jpg" alt="Faguri">
+      <img src="faguri.jpg" loading="lazy" alt="Faguri">
       <h3>Faguri</h3>
       <p>Faguri proaspeți, direct din stupină, cu miere naturală.</p>
-      <div class="variant">
-        <label>400g – 35 lei</label>
-        <div class="qty-control">
-          <button class="minus">-</button>
-          <input type="number" class="qty" value="1" min="1" data-price="35">
-          <button class="plus">+</button>
-        </div>
+      <div class="variant"><label>400g – 35 lei</label>
+        <div class="qty-control"><button class="minus">-</button><input type="number" class="qty" value="1" min="1" data-price="35"><button class="plus">+</button></div>
       </div>
-      <div class="variant">
-        <label>800g – 65 lei</label>
-        <div class="qty-control">
-          <button class="minus">-</button>
-          <input type="number" class="qty" value="1" min="1" data-price="65">
-          <button class="plus">+</button>
-        </div>
+      <div class="variant"><label>800g – 65 lei</label>
+        <div class="qty-control"><button class="minus">-</button><input type="number" class="qty" value="1" min="1" data-price="65"><button class="plus">+</button></div>
       </div>
       <button class="add-btn">Adaugă în coș</button>
     </div>
 
-    <!-- Polen -->
     <div class="product" data-name="Polen">
-      <img src="polen.jpg" alt="Polen">
+      <img src="polen.jpg" loading="lazy" alt="Polen">
       <h3>Polen</h3>
       <p>Polen natural, bogat în vitamine și minerale.</p>
-      <div class="variant">
-        <label>400g – 38 lei</label>
-        <div class="qty-control">
-          <button class="minus">-</button>
-          <input type="number" class="qty" value="1" min="1" data-price="38">
-          <button class="plus">+</button>
-        </div>
+      <div class="variant"><label>400g – 38 lei</label>
+        <div class="qty-control"><button class="minus">-</button><input type="number" class="qty" value="1" min="1" data-price="38"><button class="plus">+</button></div>
       </div>
-      <div class="variant">
-        <label>800g – 70 lei</label>
-        <div class="qty-control">
-          <button class="minus">-</button>
-          <input type="number" class="qty" value="1" min="1" data-price="70">
-          <button class="plus">+</button>
-        </div>
+      <div class="variant"><label>800g – 70 lei</label>
+        <div class="qty-control"><button class="minus">-</button><input type="number" class="qty" value="1" min="1" data-price="70"><button class="plus">+</button></div>
       </div>
       <button class="add-btn">Adaugă în coș</button>
     </div>
 
-    <!-- Propolis -->
     <div class="product" data-name="Propolis">
-      <img src="tinctură de propolis.jpg" alt="Propolis">
+      <img src="tinctură de propolis.jpg" loading="lazy" alt="Propolis">
       <h3>Propolis</h3>
       <p>Propolis pur, folosit pentru întărirea imunității.</p>
-      <div class="variant">
-        <label>20 ml – 25 lei</label>
-        <div class="qty-control">
-          <button class="minus">-</button>
-          <input type="number" class="qty" value="1" min="1" data-price="25">
-          <button class="plus">+</button>
-        </div>
+      <div class="variant"><label>20 ml – 25 lei</label>
+        <div class="qty-control"><button class="minus">-</button><input type="number" class="qty" value="1" min="1" data-price="25"><button class="plus">+</button></div>
       </div>
-      <div class="variant">
-        <label>25 ml – 30 lei</label>
-        <div class="qty-control">
-          <button class="minus">-</button>
-          <input type="number" class="qty" value="1" min="1" data-price="30">
-          <button class="plus">+</button>
-        </div>
+      <div class="variant"><label>25 ml – 30 lei</label>
+        <div class="qty-control"><button class="minus">-</button><input type="number" class="qty" value="1" min="1" data-price="30"><button class="plus">+</button></div>
       </div>
       <button class="add-btn">Adaugă în coș</button>
     </div>
@@ -264,7 +193,7 @@ footer { background:#f5d76e; text-align:center; padding:20px; font-size:0.95em; 
   <h2>Coșul tău</h2>
   <ul id="cart-items"></ul>
   <div id="total">Total: 0 lei</div>
-  <button id="checkout" class="checkout">Trimite Comanda</button>
+  <button id="checkout" class="checkout">Continuă comanda</button>
 </section>
 
 <section id="despre">
@@ -276,17 +205,25 @@ footer { background:#f5d76e; text-align:center; padding:20px; font-size:0.95em; 
 <section id="contact">
   <h2>Comandă Produse</h2>
   <form id="comandaBancara" action="https://formspree.io/f/xovkjrqj" method="POST" autocomplete="on">
-    <label for="nume">Nume complet:</label>
-    <input type="text" id="nume" name="nume" placeholder="Ex: Ion Popescu" required>
+    <div class="form-group">
+      <label for="nume">Nume complet:</label>
+      <input type="text" id="nume" name="nume" placeholder="Ex: Ion Popescu" required>
+    </div>
 
-    <label for="telefon">Număr telefon:</label>
-    <input type="tel" id="telefon" name="telefon" placeholder="Ex: 0739123456" required>
+    <div class="form-group">
+      <label for="telefon">Număr telefon:</label>
+      <input type="tel" id="telefon" name="telefon" placeholder="Ex: 0739123456" required>
+    </div>
 
-    <label for="strada">Strada:</label>
-    <input type="text" id="strada" name="strada" placeholder="Ex: Strada Florilor 10" required>
+    <div class="form-group">
+      <label for="strada">Strada:</label>
+      <input type="text" id="strada" name="strada" placeholder="Ex: Strada Florilor 10" required>
+    </div>
 
-    <label for="oras">Oraș:</label>
-    <input type="text" id="oras" name="oras" placeholder="Ex: București" required>
+    <div class="form-group">
+      <label for="oras">Oraș:</label>
+      <input type="text" id="oras" name="oras" placeholder="Ex: București" required>
+    </div>
 
     <input type="hidden" id="produse_cos" name="produse_cos">
     <button type="submit">Trimite Comanda</button>
@@ -298,83 +235,66 @@ footer { background:#f5d76e; text-align:center; padding:20px; font-size:0.95em; 
 </footer>
 
 <script>
-// Plus / minus
+// Welcome message fade in/out
+window.addEventListener('load',()=>{
+  const msg=document.getElementById('welcome-msg');
+  msg.style.opacity=1;
+  setTimeout(()=>{ msg.style.opacity=0; },3000);
+});
+
+// Cantitate
 document.querySelectorAll('.plus').forEach(btn=>{
-  btn.addEventListener('click', ()=>{
-    const input = btn.previousElementSibling;
-    input.value = parseInt(input.value)+1;
-  });
+  btn.addEventListener('click',()=>{ const input=btn.previousElementSibling; input.value=parseInt(input.value)+1; });
 });
 document.querySelectorAll('.minus').forEach(btn=>{
-  btn.addEventListener('click', ()=>{
-    const input = btn.nextElementSibling;
-    if(parseInt(input.value)>1) input.value = parseInt(input.value)-1;
-  });
+  btn.addEventListener('click',()=>{ const input=btn.nextElementSibling; if(parseInt(input.value)>1) input.value=parseInt(input.value)-1; });
 });
 
 // Coș
-const cart = [];
-const cartItems = document.getElementById('cart-items');
-const total = document.getElementById('total');
-const produseCosInput = document.getElementById('produse_cos');
+const cart=[];
+const cartItems=document.getElementById('cart-items');
+const total=document.getElementById('total');
+const produseCosInput=document.getElementById('produse_cos');
 
 document.querySelectorAll('.add-btn').forEach(btn=>{
-  btn.addEventListener('click', ()=>{
-    const product = btn.closest('.product');
-    const name = product.dataset.name;
-
+  btn.addEventListener('click',()=>{
+    const product=btn.closest('.product');
+    const name=product.dataset.name;
     product.querySelectorAll('.variant').forEach(variant=>{
-      const qtyInput = variant.querySelector('.qty');
-      const qty = parseInt(qtyInput.value);
-      const price = parseInt(qtyInput.dataset.price);
-      const variantLabel = variant.querySelector('label').textContent;
-
+      const qty=parseInt(variant.querySelector('.qty').value);
+      const price=parseInt(variant.querySelector('.qty').dataset.price);
       if(qty>0){
-        const itemName = `${name} (${variantLabel})`;
-        const existingIndex = cart.findIndex(item=>item.name===itemName);
-        if(existingIndex>-1){
-          cart[existingIndex].qty += qty;
-        } else {
-          cart.push({name:itemName, price, qty});
-        }
+        const existingIndex=cart.findIndex(item=>item.name===name+" "+variant.querySelector('label').textContent);
+        if(existingIndex>-1){ cart[existingIndex].qty+=qty; }
+        else{ cart.push({name:name+" "+variant.querySelector('label').textContent, price, qty}); }
       }
     });
-
     updateCart();
   });
 });
 
 function updateCart(){
-  cartItems.innerHTML = '';
+  cartItems.innerHTML='';
   let sum=0;
   cart.forEach((item,index)=>{
-    const li = document.createElement('li');
-    li.textContent = `${item.qty} x ${item.name} - ${item.price*item.qty} lei`;
-
-    const removeBtn = document.createElement('button');
-    removeBtn.textContent = 'Șterge';
-    removeBtn.addEventListener('click', ()=>{
-      cart.splice(index,1);
-      updateCart();
-    });
-
+    const li=document.createElement('li');
+    li.textContent=`${item.qty} x ${item.name} - ${item.price*item.qty} lei`;
+    const removeBtn=document.createElement('button');
+    removeBtn.textContent='Șterge';
+    removeBtn.addEventListener('click',()=>{ cart.splice(index,1); updateCart(); });
     li.appendChild(removeBtn);
     cartItems.appendChild(li);
     sum+=item.price*item.qty;
   });
-  total.textContent = `Total: ${sum} lei`;
-  produseCosInput.value = cart.map(i=>`${i.qty} x ${i.name}`).join(', ');
+  total.textContent=`Total: ${sum} lei`;
+  produseCosInput.value=cart.map(i=>`${i.qty} x ${i.name}`).join(', ');
 }
 
-// Checkout
-document.getElementById('checkout').addEventListener('click', ()=>{
-  if(cart.length===0){
-    alert("Coșul este gol!");
-    return;
-  }
+// Checkout scroll
+document.getElementById('checkout').addEventListener('click',()=>{
+  if(cart.length===0){ alert("Coșul este gol!"); return; }
   document.getElementById('contact').scrollIntoView({behavior:'smooth'});
 });
 </script>
-
 </body>
 </html>
