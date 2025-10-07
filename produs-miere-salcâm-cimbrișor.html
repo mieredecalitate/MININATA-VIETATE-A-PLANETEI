@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Miere salcâm cu cimbrișor - MINUNATA VIETATE A PLANETEI</title>
+<style>
+body {margin:0; font-family: Arial, sans-serif; background:#000; color:#fff; line-height:1.6;}
+header {background:#111; text-align:center; padding:30px 20px;}
+header h1 {font-size:2.5em; margin-bottom:10px;}
+nav{text-align:center;margin:20px 0;}
+nav a{color:#fff;text-decoration:none;font-weight:bold;margin:0 15px;padding:10px 15px;border-radius:10px;border:2px solid #fff;transition:0.3s;}
+nav a:hover{background:#fff;color:#000;}
+section{max-width:900px;margin:30px auto;padding:0 20px;}
+.product-img{width:100%;max-width:500px;display:block;margin:20px auto;border-radius:15px;}
+h2{text-align:center;color:#f5d76e;}
+ul{list-style:none;padding-left:0;}
+li{margin-bottom:8px;}
+button{padding:10px 20px;background:#f5d76e;color:#000;border:none;border-radius:12px;font-weight:bold;cursor:pointer;margin-top:10px;transition:0.3s;}
+button:hover{background:#d1a400;}
+.qty-control{display:flex;justify-content:center;align-items:center;gap:10px;margin-top:15px;}
+.qty-control input{width:60px;text-align:center;border-radius:6px;border:1px solid #fff;background:#000;color:#fff;font-size:16px;}
+.qty-control button{border:none;background:#f5d76e;color:#000;border-radius:8px;cursor:pointer;font-size:18px;padding:5px 10px;}
+</style>
+</head>
+<body>
+
+<header>
+<h1>Miere salcâm cu cimbrișor</h1>
+<nav>
+<a href="index.html">Înapoi la Produse</a>
+</nav>
+</header>
+
+<section>
+<img src="miere de salcâm cu cimbrișor de câmp.jpg" alt="Miere salcâm cu cimbrișor" class="product-img" loading="lazy">
+
+<h2>Beneficii și utilizare</h2>
+<ul>
+<li>Proprietăți expectorante, calmează tusea și spasmele căilor respiratorii.</li>
+<li>Susține imunitatea și sănătatea generală.</li>
+<li>Se consumă dimineața sau înainte de culcare, câte o linguriță.</li>
+<li>Recomandată pentru răceli sau perioade cu efort fizic și intelectual intens.</li>
+<li>Are efect relaxant datorită cimbrișorului.</li>
+</ul>
+
+<h2>Selectează cantitatea</h2>
+<div class="variant">
+<label>400g – 30 lei</label>
+<div class="qty-control">
+<button class="minus">-</button>
+<input type="number" class="qty" value="1" min="1" data-price="30">
+<button class="plus">+</button>
+</div>
+</div>
+<div class="variant">
+<label>800g – 60 lei</label>
+<div class="qty-control">
+<button class="minus">-</button>
+<input type="number" class="qty" value="1" min="1" data-price="60">
+<button class="plus">+</button>
+</div>
+</div>
+
+<button class="add-btn">Adaugă în coș</button>
+</section>
+
+<script>
+document.querySelectorAll('.plus').forEach(btn => {btn.addEventListener('click', ()=>{const input=btn.previousElementSibling; input.value=parseInt(input.value)+1;});});
+document.querySelectorAll('.minus').forEach(btn => {btn.addEventListener('click', ()=>{const input=btn.nextElementSibling;if(parseInt(input.value)>1)input.value=parseInt(input.value)-1;});});
+</script>
+
+</body>
+</html>
