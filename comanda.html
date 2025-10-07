@@ -3,52 +3,100 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Comandă Produse</title>
+<title>Comanda Ta</title>
 <style>
-body{background:#000;color:gold;font-family:Arial,sans-serif;margin:0;padding:0;}
-h2{text-align:center;margin:30px 0;}
-table{width:90%;max-width:700px;margin:0 auto;border-collapse:collapse;}
-th,td{border:1px solid gold;padding:8px;text-align:center;}
-input,button{padding:8px;margin:5px;width:100%;}
-form{max-width:600px;margin:20px auto;}
-button{background:#28a745;color:#000;border:none;border-radius:5px;cursor:pointer;font-weight:bold;}
-button:hover{background:#218838;}
+body { background:black; color:#FFD700; font-family:Arial, sans-serif; text-align:center; margin:0; padding:0; }
+h1 { color:#FFD700; margin:30px 0; font-size:2em; }
+table { width:80%; margin:0 auto 30px auto; border-collapse:collapse; }
+th, td { border:1px solid #FFD700; padding:10px; text-align:center; }
+th { background:#000; color:#FFD700; }
+input[type="text"], input[type="tel"] {
+  width:60%; padding:8px; border:none; border-radius:6px; margin-bottom:10px;
+}
+button {
+  background:#28a745; color:white; padding:12px 30px;
+  border:none; border-radius:8px; cursor:pointer;
+  font-weight:bold; font-size:16px;
+}
+button:hover { background:#22c85b; }
+.container { width:80%; margin:0 auto; max-width:700px; }
+label { display:block; text-align:left; margin-left:20%; margin-bottom:5px; font-weight:bold; }
 </style>
 </head>
 <body>
-<h2>Comanda Ta</h2>
-<table id="cart-table">
-  <thead>
-    <tr><th>Produs</th><th>Cantitate</th><th>Preț</th></tr>
-  </thead>
-  <tbody></tbody>
-</table>
-<p id="total" style="text-align:right; font-weight:bold;"></p>
 
-<form action="https://formspree.io/f/xovkjrqj" method="POST">
-  <label>Nume:</label><input type="text" name="nume" required>
-  <label>Telefon:</label><input type="tel" name="telefon" required>
-  <label>Strada:</label><input type="text" name="strada" required>
-  <label>Oraș:</label><input type="text" name="oras" required>
-  <input type="hidden" id="produse_cos" name="produse_cos">
-  <button type="submit">Trimite Comanda</button>
-</form>
+<h1>Comanda Ta</h1>
+
+<table id="tabelProduse">
+  <tr>
+    <th>Produs</th>
+    <th>Cantitate</th>
+    <th>Preț</th>
+  </tr>
+</table>
+
+<div class="container">
+  <form id="formularComanda">
+    <label for="nume">Nume:</label>
+    <input type="text" id="nume" name="nume" required><br>
+
+    <label for="telefon">Telefon:</label>
+    <input type="tel" id="telefon" name="telefon" required><br>
+
+    <label for="strada">Strada:</label>
+    <input type="text" id="strada" name="strada" required><br>
+
+    <label for="oras">Oraș:</label>
+    <input type="text" id="oras" name="oras" required><br>
+
+    <button type="submit">Trimite Comanda</button>
+  </form>
+</div>
 
 <script>
-// Preluare produse din LocalStorage
-let cart=JSON.parse(localStorage.getItem('cart'))||[];
-const tbody=document.querySelector('#cart-table tbody');
-let total=0;
-cart.forEach(item=>{
-  item.variants.forEach(v=>{
-    const tr=document.createElement('tr');
-    tr.innerHTML=`<td>${item.name}</td><td>${v.qty}</td><td>${v.qty*v.price} lei</td>`;
-    tbody.appendChild(tr);
-    total+=v.qty*v.price;
+document.addEventListener("DOMContentLoaded", function() {
+  const tabel = document.getElementById("tabelProduse");
+  const cos = JSON.parse(localStorage.getItem("cart")) || [];
+
+  if (cos.length === 0) {
+    const rand = tabel.insertRow(-1);
+    const celula = rand.insertCell(0);
+    celula.colSpan = 3;
+    celula.innerText = "Coșul este gol 😢";
+  } else {
+    cos.forEach(p => {
+      const rand = tabel.insertRow(-1);
+      rand.insertCell(0).innerText = p.name;
+      rand.insertCell(1).innerText = p.qty;
+      rand.insertCell(2).innerText = p.price * p.qty + " lei";
+    });
+  }
+
+  const formular = document.getElementById("formularComanda");
+  formular.addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const nume = document.getElementById("nume").value.trim();
+    const telefon = document.getElementById("telefon").value.trim();
+    const strada = document.getElementById("strada").value.trim();
+    const oras = document.getElementById("oras").value.trim();
+
+    if (!nume || !telefon || !strada || !oras) {
+      alert("Te rog completează toate câmpurile!");
+      return;
+    }
+
+    alert("Comanda a fost trimisă cu succes! 🐝 Mulțumim pentru achiziție!");
+    localStorage.removeItem("cart");
+    formular.reset();
+    tabel.innerHTML = "<tr><th>Produs</th><th>Cantitate</th><th>Preț</th></tr>";
+    const rand = tabel.insertRow(-1);
+    const celula = rand.insertCell(0);
+    celula.colSpan = 3;
+    celula.innerText = "Mulțumim pentru comandă! 🍯";
   });
 });
-document.getElementById('total').textContent="Total: "+total+" lei";
-document.getElementById('produse_cos').value=JSON.stringify(cart);
 </script>
+
 </body>
 </html>
